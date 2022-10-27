@@ -10,24 +10,25 @@
 <body>
   <!-- header -->
   <div>
+    <h1>Code Wiz Quiz</h1>
     <div>
-      <a>View High Scores</a>
+      <button>View High Scores</button>
     </div>
 
-    <div>
+    <div class="count">
+      <button onclick="start()">
+        Start Quiz
+      </button>      
       Time Left: 
-      <span>
-        0
-      </span>
+      <span id="count">0</span> seconds
+
     </div>
   </div>
   
   <div>
     <!-- intro -->
     <div>
-      <h1>Code Wiz Quiz</h1>
         <p>Are you a code wiz? Prove it by answering the following questions before time expires. Wrong answers will result in a 10 second reduction in time. Good luck!</p>
-        <button>Start</button>
     </div>
     <!-- questions div (input once classes are defined)-->
     <div></div>
@@ -37,7 +38,7 @@
 
   </div>
 
-
+<script src="/dev/app.js"></script>
 </body>
 
 </html>
