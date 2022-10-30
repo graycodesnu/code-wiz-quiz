@@ -28,10 +28,6 @@ var quizQuestions = [
   }
 ];
 
-//! Local storage 
-if (!localStorage.getItem("highScores")) {
-  localStorage.setItem("highScores", JSON.stringify([]));
-}
 
 //! Timer
 function startTimer(){
@@ -72,4 +68,37 @@ function displayQ() {
   console.log('currentQIndex', currentQIndex);
 
   // Define currentQIndex here
+}
+
+//! Local storage 
+if (!localStorage.getItem("highScores")) {
+  localStorage.setItem("highScores", JSON.stringify([]));
+}
+
+//! Display high scores if on quizWiz page
+if (window.location.pathname === "./quizWizzes.html") {
+  let scores = JSON.parse(localStorage.getItem("highScores"));
+  let scoreBoard = document.querySelector("#scoreBoard");
+  for (let i = 0; i < scores.length; i++) {
+    let liEl = document.createElement('li');
+    liEl.textContent = scores[i].name + " ** " + scores[i].score;
+    scoreBoard.appendChild(liEl);
+  }
+  var clearBtn = document.getElementById("clearHighScores");
+  var backBtn = document.getElementById("goBack")
+
+  if (clearBtn) {
+    clearBtn.addEventListener("click", clearScores);
+    function resetScores() {
+      localStorage.setItem("highScores", jSON.stringify([]));
+      console.log("resetting scoreboard")
+      let scoreBoardList = document.getElementById("scoreBoard");
+      scoreBoardList.innerHTML = "";
+    }
+  }
+  if (backBtn) {
+    backBtn.addEventListener("click", () => {
+      window.open("./index.html")
+    })
+  }
 }
