@@ -8,35 +8,39 @@
 </head>
 
 <body>
+
+  <!-- quiz wiz button -->
+  <div class=row>
+    <div class="scores">
+      <a href="quizWizzes.html">View High Scores</a>
+    </div>
+
+    <!-- timer -->
+    <div class="timer">Time Left: <span id="time">0</span>
+    </div>
+  </div>
+
   <!-- header -->
   <div>
     <h1>Code Wiz Quiz</h1>
-    <div>
-      <button href="./quizWizzes.html">View High Scores</button>
-    </div>
-
-    <div class="count">
-      <button onclick="start()">
-        Start Quiz
-      </button>
-<!-- timer -->
-      Time Left: 
-      <span id="count">0</span> seconds
-
-    </div>
+    <p>Are you a code wiz? Prove it by answering the following questions before time expires. Wrong answers will result in a 10 second reduction in time. Good luck!</p>
+    <button class="btn" id="startButton">Test My Skills!</button>
   </div>
-  
-  <div class="wrapper">
-    <!-- intro -->
-    <div id="start-q" class="start">
-        <p>Are you a code wiz? Prove it by answering the following questions before time expires. Wrong answers will result in a 10 second reduction in time. Good luck!</p>
-    </div>
 
+<!-- question container -->
     <div class="question" id="questionContainer"></div>
-  </div>
 
-  <div>
-
+<!-- once completed -- score submission -->
+  <div class="completed">
+    <div>
+      <h1>Let's See Your Results!</h1>
+      <p class="score"></p>
+      <form>
+        <input type="text" id="initials" name="initials" placeholder="Enter Your Initials">
+        <label for="initials">Enter Your Initials</label>
+        <button class="btn" id="submitBtn">Submit</button>
+      </form>
+    </div>
   </div>
 
 <script src="/dev/app.js"></script>

@@ -31,25 +31,30 @@ var quizQuestions = [
 
 
 //! Timer
-function startTimer(){
-  var counter = 60;
-  setInterval(function() {
-    counter--;
-    if (counter >= 0) {
-      span = document.getElementById("count");
-      span.innerHTML = counter;
-    }
-    if (counter === 0) {
-        alert('sorry, out of time');
-        clearInterval(counter);
-    }
-  }, 1000);
-}
-function start()
-{
-    document.getElementById("count").style="color:green;";
-    startTimer();
-};
+// function startTimer(){
+//   var counter = 60;
+//   setInterval(function() {
+//     counter--;
+//     if (counter >= 0) {
+//       span = document.getElementById("count");
+//       span.innerHTML = counter;
+//     }
+//     if (counter === 0) {
+//         alert('sorry, out of time');
+//         clearInterval(counter);
+//     }
+//   }, 1000);
+// }
+// function start()
+// {
+//     document.getElementById("count").style="color:green;";
+//     startTimer();
+// };
+
+// TODO: Timer refactor
+const time = 60;
+timer;
+const display = document.querySelector('#time');
 
 //! Start button
 const startButton = document.getElementById(".start-q");
@@ -59,6 +64,14 @@ function startQuiz () {
   const startMessage = document.getElementById(".start");
   startMessage.style.display = "none";
   time = setInterval(startTimer);
+}
+
+function startTimer() {
+  time = time = -1;
+  display.textContent = time;
+  if (time <= 0) {
+    alert('Out of time!');
+  }
 }
 
 function displayQ() {
@@ -144,15 +157,17 @@ function quizWizzes() {
   submitScore.addEventListener('click', () => {
     let inputInitials = document.querySelector('#inputInitials');
     let initials = inputInitials.value;
-    let previousScores = JSON.parse(localStorage.getItem("highscores"));
+    let previousScores = JSON.parse(localStorage.getItem("highScores"));
     previousScores.push ({
       name: initials,
       score: time
     });
-    localStorage.setItem('highscores', JSON.stringify(previousScores));
+    localStorage.setItem('highScores', JSON.stringify(previousScores));
     window.open('./quizWizzes.html');
   });
 };
+
+//* ******** Quiz Wiz Page ********
 
 //! Local storage 
 if (!localStorage.getItem("highScores")) {
@@ -168,7 +183,7 @@ if (window.location.pathname === "./quizWizzes.html") {
     liEl.textContent = scores[i].name + " ** " + scores[i].score;
     scoreBoard.appendChild(liEl);
   }
-  var clearBtn = document.getElementById("clearHighScores");
+  var clearBtn = document.getElementById("clearhighScores");
   var backBtn = document.getElementById("goBack")
 
 //! Reset quizWiz high scores
