@@ -1,5 +1,6 @@
 //! Setup
 var body = document.body;
+var currentQIndex = -1;
 var quizQuestions = [
     {
       question: "Commonly used data types DO NOT include",
@@ -66,9 +67,32 @@ function displayQ() {
   }
   currentQIndex++;
   console.log('currentQIndex', currentQIndex);
-
-  // Define currentQIndex here
 }
+
+//! Call questions
+var currentQ = quizQuestions[currentQIndex];
+
+var dataTypes = document.createElement('h1');
+var listEl = document.createElement('ol');
+listEl.addEventListener("click", function (e) {
+    checkChoice(e);
+});
+var li1 = document.createElement('li');
+li1.setAttribute("id", "choice1");
+var li2 = document.createElement('li');
+li2.setAttribute("id", "choice2");
+var li3 = document.createElement('li');
+li3.setAttribute("id", "choice3");
+var li4 = document.createElement('li');
+li4.setAttribute("id", "choice4");
+
+dataTypes.textContent = currentQ.question;
+li1.textContent = currentQ.answers[0];
+li2.textContent = currentQ.answers[1];
+li3.textContent = currentQ.answers[2];
+li4.textContent = currentQ.answers[3];
+
+
 
 //! Local storage 
 if (!localStorage.getItem("highScores")) {
@@ -87,6 +111,7 @@ if (window.location.pathname === "./quizWizzes.html") {
   var clearBtn = document.getElementById("clearHighScores");
   var backBtn = document.getElementById("goBack")
 
+//! Reset quizWiz high scores
   if (clearBtn) {
     clearBtn.addEventListener("click", clearScores);
     function resetScores() {
@@ -96,6 +121,7 @@ if (window.location.pathname === "./quizWizzes.html") {
       scoreBoardList.innerHTML = "";
     }
   }
+//! Back to quiz home
   if (backBtn) {
     backBtn.addEventListener("click", () => {
       window.open("./index.html")
