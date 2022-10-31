@@ -124,7 +124,35 @@ function verifyQ(e) {
   );
 }
 
+function quizComplete() {
+  clearInterval(timer);
+  const score = document.querySelector('.score');
 
+  const completedEl = document.querySelector('completed');
+  completedEl.style.display = "block";
+
+  const hideQs = document.querySelector('#questionContainer');
+  hideQs.style.display = "none";
+  score.textContent = `Final score: ${time}`;
+
+  quizWizzes();
+}
+
+//! Submit high scores 
+function quizWizzes() {
+  const submitScore = document.querySelector('#submitBtn');
+  submitScore.addEventListener('click', () => {
+    let inputInitials = document.querySelector('#inputInitials');
+    let initials = inputInitials.value;
+    let previousScores = JSON.parse(localStorage.getItem("highscores"));
+    previousScores.push ({
+      name: initials,
+      score: time
+    });
+    localStorage.setItem('highscores', JSON.stringify(previousScores));
+    window.open('./quizWizzes.html');
+  });
+};
 
 //! Local storage 
 if (!localStorage.getItem("highScores")) {
