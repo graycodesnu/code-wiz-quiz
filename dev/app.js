@@ -5,27 +5,27 @@ var quizQuestions = [
     {
       question: "Commonly used data types DO NOT include",
       answers: ["Strings", "Booleans", "Alerts", "Numbers"],
-      correctAns: 2
+      correctAnswer: 2
   },
   {
       question: "The condition in an if/else statement is enclosed within _____.",
       answers: ["Quotes", "Curly brackets", "Parentheses", "Square brackets"],
-      correctAns: 2
+      correctAnswer: 2
   },
   {
       question: "Arrays in JavaScript can be used to store:",
       answers: ["Numbers and strings", "Other arrays", "Booleans", "All of the above"],
-      correctAns: 3
+      correctAnswer: 3
   },
   {
       question: "String values must be enclosed within ____ when being assigned to variables.",
       answers: ["Commas", "Curly brackets", "Quotes", "Parentheses"],
-      correctAns: 2
+      correctAnswer: 2
   },
   {
       question: "A very useful tool used during development and debugging for printing content to the debugger is:",
       answers: ["JavaScript", "Terminal/bash", "For loops", "console.log"],
-      correctAns: 3
+      correctAnswer: 3
   }
 ];
 
@@ -70,20 +70,20 @@ function displayQ() {
 }
 
 //! Call questions
-var currentQ = quizQuestions[currentQIndex];
+const currentQ = quizQuestions[currentQIndex];
 
-var dataTypes = document.createElement('h1');
-var listEl = document.createElement('ol');
+const dataTypes = document.createElement('h1');
+const listEl = document.createElement('ol');
 listEl.addEventListener("click", function (e) {
     checkChoice(e);
 });
-var li1 = document.createElement('li');
+const li1 = document.createElement('li');
 li1.setAttribute("id", "choice1");
-var li2 = document.createElement('li');
+const li2 = document.createElement('li');
 li2.setAttribute("id", "choice2");
-var li3 = document.createElement('li');
+const li3 = document.createElement('li');
 li3.setAttribute("id", "choice3");
-var li4 = document.createElement('li');
+const li4 = document.createElement('li');
 li4.setAttribute("id", "choice4");
 
 dataTypes.textContent = currentQ.question;
@@ -91,6 +91,38 @@ li1.textContent = currentQ.answers[0];
 li2.textContent = currentQ.answers[1];
 li3.textContent = currentQ.answers[2];
 li4.textContent = currentQ.answers[3];
+
+const questionContainer = document.getElementById("questionContainer");
+questionContainer.innerHTML = "";
+questionContainer.appendChild(dataTypes);
+dataTypes.appendChild(listEl);
+listEl.appendChild(li1);
+listEl.appendChild(li2);
+listEl.appendChild(li3);
+listEl.appendChild(li4);
+
+//! Verify user's selection, count correct questions
+const correctQCount = 0;
+
+function verifyQ(e) {
+  let currentQ = quizQuestions[currentQIndex];
+  let rightChoiceIndex = currentQ.correctAnswer;
+  let rightChoiceContent = currentQ.answers[rightChoiceIndex];
+  let result = document.createElement('p');
+  const questionContainer = document.getElementById('questionContainer');
+  questionContainer.appendChild(result);
+
+  if (e.target.textContent === rightChoiceContent) {
+    correctQCount++;
+    result.textContent='Right on!';
+  } else {
+    result.textContent = 'Try again!';
+    time -= 10;
+  }
+  setTimeout( 
+    // TODO: Input function to render questions 
+  );
+}
 
 
 
