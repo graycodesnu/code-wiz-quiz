@@ -56,20 +56,23 @@ const time = 60;
 timer;
 const display = document.querySelector('#time');
 
+if (window.location.pathname === "./index.html") {
 //! Start button
-const startButton = document.getElementById(".start-q");
+const startButton = document.getElementById("startButton");
 startButton.addEventListener("click", startQuiz);
 
 function startQuiz () {
-  const startMessage = document.getElementById(".start");
+  const startMessage = document.getElementById("startingQuiz");
   startMessage.style.display = "none";
-  time = setInterval(startTimer);
+  timer = setInterval(startTimer, 1000);
+  displayQ();
 }
 
 function startTimer() {
   time = time = -1;
   display.textContent = time;
   if (time <= 0) {
+    quizComplete();
     alert('Out of time!');
   }
 }
@@ -132,9 +135,7 @@ function verifyQ(e) {
     result.textContent = 'Try again!';
     time -= 10;
   }
-  setTimeout( 
-    // TODO: Input function to render questions 
-  );
+  setTimeout(displayQ, 1000);
 }
 
 function quizComplete() {
@@ -166,6 +167,9 @@ function quizWizzes() {
     window.open('./quizWizzes.html');
   });
 };
+
+// Close window path function
+}
 
 //* ******** Quiz Wiz Page ********
 
@@ -202,4 +206,5 @@ if (window.location.pathname === "./quizWizzes.html") {
       window.open("./index.html")
     })
   }
+// Close high scores window path function
 }
