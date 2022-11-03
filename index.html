@@ -1,49 +1,56 @@
 <!DOCTYPE html>
 <html lang="eng">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./dev/style.css" />
+    <title>Code Wiz Quiz</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="./dev/style.css" />
-  <title>Code Wiz Quiz</title>
-</head>
+  <body>
+    <!-- quiz wiz button -->
+    <div class="row">
+      <div class="scores">
+        <a href="quizWizzes.html">View High Scores</a>
+      </div>
 
-<body>
-
-  <!-- quiz wiz button -->
-  <div class=row>
-    <div class="scores">
-      <a href="quizWizzes.html">View High Scores</a>
+      <!-- timer -->
+      <div class="timer">Time Left: <span id="time">0</span></div>
     </div>
 
-    <!-- timer -->
-    <div class="timer">Time Left: <span id="time">0</span>
+    <!-- header -->
+    <div class="wrapper">
+      <div id="startingQuiz" class="start">
+        <h1>Code Wiz Quiz</h1>
+        <p>
+          Are you a code wiz? Prove it by answering the following questions
+          before time expires. Wrong answers will result in a 10 second
+          reduction in time. Good luck!
+        </p>
+        <button class="btn" id="startButton">Test My Skills!</button>
+      </div>
+
+      <!-- question container -->
+      <div class="question" id="questionContainer"></div>
     </div>
-  </div>
 
-  <!-- header -->
-  <div id="startingQuiz" class="start">
-    <h1>Code Wiz Quiz</h1>
-    <p>Are you a code wiz? Prove it by answering the following questions before time expires. Wrong answers will result in a 10 second reduction in time. Good luck!</p>
-    <button class="btn" id="startButton">Test My Skills!</button>
-  </div>
-
-<!-- question container -->
-    <div class="question" id="questionContainer"></div>
-
-<!-- once completed -- score submission -->
-  <div class="completed">
-    <div>
-      <h1>Let's See Your Results!</h1>
-      <p class="score"></p>
-      <form>
-        <input type="text" id="initials" name="initials" placeholder="Enter Your Initials">
-        <label for="initials">Enter Your Initials</label>
-        <button class="btn" id="submitBtn">Submit</button>
-      </form>
+    <!-- once completed -- score submission -->
+    <div class="completed">
+      <div>
+        <h1>Let's See Your Results!</h1>
+        <p class="score"></p>
+        <form>
+          <input
+            type="text"
+            id="inputInitials"
+            name="initials"
+            placeholder="Enter Your Initials"
+          />
+          <label for="initials">Enter Your Initials</label>
+          <button class="btn" id="submitButton">Submit</button>
+        </form>
+      </div>
     </div>
-  </div>
 
-<script src="/dev/app.js"></script>
-</body>
-
+    <script src="./dev/app.js"></script>
+  </body>
 </html>
