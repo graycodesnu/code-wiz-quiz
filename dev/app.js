@@ -36,7 +36,8 @@ var quizQuestions = [
   },
 ];
 
-// TODO: Timer refactor
+console.log('QUESTION LOG', quizQuestions.question)
+
 var time = 60;
 var timer;
 console.log("timer", timer);
@@ -83,6 +84,7 @@ if (window.location.pathname === "/code-wiz-quiz/quizWizzes.html") {
 } else {
 
 //* ******** Landing Page ********
+
   //! Start button
     var startButton = document.getElementById("startButton");
     startButton.addEventListener("click", startQuiz);
@@ -100,7 +102,7 @@ if (window.location.pathname === "/code-wiz-quiz/quizWizzes.html") {
       display.textContent = time;
       if (time <= 0) {
         quizComplete();
-        // alert("Out of time!");
+        alert("Out of time!");
       }
     }
 
