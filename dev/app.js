@@ -36,7 +36,7 @@ var quizQuestions = [
   },
 ];
 
-console.log('QUESTION LOG', quizQuestions.question)
+console.log("QUESTION LOG", quizQuestions);
 
 var time = 60;
 var timer;
@@ -60,7 +60,7 @@ if (window.location.pathname === "/code-wiz-quiz/quizWizzes.html") {
     scoreBoard.appendChild(liEl);
   }
 
-  // Define clear and back buttons 
+  // Define clear and back buttons
   var clearBtn = document.getElementById("clearHighScores");
   var backBtn = document.getElementById("backButton");
 
@@ -82,38 +82,37 @@ if (window.location.pathname === "/code-wiz-quiz/quizWizzes.html") {
     });
   }
 } else {
-
-//* ******** Landing Page ********
+  //* ******** Landing Page ********
 
   //! Start button
-    var startButton = document.getElementById("startButton");
-    startButton.addEventListener("click", startQuiz);
+  var startButton = document.getElementById("startButton");
+  startButton.addEventListener("click", startQuiz);
 
-    function startQuiz() {
-      var startMessage = document.getElementById("startingQuiz");
-      startMessage.style.display = "none";
-      timer = setInterval(startTimer, 1000);
-      displayQ();
-    }
+  function startQuiz() {
+    var startMessage = document.getElementById("startingQuiz");
+    startMessage.style.display = "none";
+    timer = setInterval(startTimer, 1000);
+    displayQ();
+  }
 
-    //! Start Timer
-    function startTimer() {
-      time = time - 1;
-      display.textContent = time;
-      if (time <= 0) {
-        quizComplete();
-        alert("Out of time!");
-      }
+  //! Start Timer
+  function startTimer() {
+    time = time - 1;
+    display.textContent = time;
+    if (time <= 0) {
+      quizComplete();
+      alert("Out of time!");
     }
+  }
 
-    //! Call index and display questions 
-    function displayQ() {
-      if (currentQIndex >= 4) {
-        return quizComplete();
-      }
-      currentQIndex++;
-      console.log("currentQIndex", currentQIndex);
+  //! Call index and display questions
+  function displayQ() {
+    // If at the last q, return complete form
+    if (currentQIndex >= 4) {
+      return quizComplete();
     }
+    currentQIndex++;
+    console.log("currentQIndex", currentQIndex);
 
     //! Call questions
     var currentQ = quizQuestions[currentQIndex];
@@ -121,7 +120,7 @@ if (window.location.pathname === "/code-wiz-quiz/quizWizzes.html") {
     var dataTypes = document.createElement("h1");
     var listEl = document.createElement("ol");
     listEl.addEventListener("click", function (e) {
-      checkChoice(e);
+      verifyQ(e);
     });
     var li1 = document.createElement("li");
     li1.setAttribute("id", "choice1");
@@ -146,55 +145,55 @@ if (window.location.pathname === "/code-wiz-quiz/quizWizzes.html") {
     listEl.appendChild(li2);
     listEl.appendChild(li3);
     listEl.appendChild(li4);
-
-    //! Verify user's selection, count correct questions
-    var correctQCount = 0;
-
-    function verifyQ(e) {
-      let currentQ = quizQuestions[currentQIndex];
-      let rightChoiceIndex = currentQ.correctAnswer;
-      let rightChoiceContent = currentQ.answers[rightChoiceIndex];
-      let result = document.createElement("p");
-      var questionContainer = document.getElementById("questionContainer");
-      questionContainer.appendChild(result);
-
-      if (e.target.textContent === rightChoiceContent) {
-        correctQCount++;
-        result.textContent = "Right on!";
-      } else {
-        result.textContent = "Try again!";
-        time -= 10;
-      }
-      setTimeout(displayQ, 1000);
-    }
-
-    function quizComplete() {
-      clearInterval(timer);
-      var score = document.querySelector(".score");
-
-      var completedEl = document.querySelector(".completed");
-      completedEl.style.display = "block";
-
-      var hideQs = document.querySelector("#questionContainer");
-      hideQs.style.display = "none";
-      score.textContent = `Final score: ${time}`;
-
-      quizWizzes();
-    }
-
-    //! Submit high scores
-    function quizWizzes() {
-      var submitScore = document.querySelector("#submitButton");
-      submitScore.addEventListener("click", () => {
-        let inputInitials = document.querySelector("#inputInitials");
-        let initials = inputInitials.value;
-        let previousScores = JSON.parse(localStorage.getItem("highScores"));
-        previousScores.push({
-          name: initials,
-          score: time,
-        });
-        localStorage.setItem("highScores", JSON.stringify(previousScores));
-        window.open("./quizWizzes.html");
-      });
-    }
   }
+  //! Verify user's selection, count correct questions
+  var correctQCount = 0;
+
+  function verifyQ(e) {
+    let currentQ = quizQuestions[currentQIndex];
+    let rightChoiceIndex = currentQ.correctAnswer;
+    let rightChoiceContent = currentQ.answers[rightChoiceIndex];
+    let result = document.createElement("p");
+    var questionContainer = document.getElementById("questionContainer");
+    questionContainer.appendChild(result);
+
+    if (e.target.textContent === rightChoiceContent) {
+      correctQCount++;
+      result.textContent = "Right on!";
+    } else {
+      result.textContent = "Try again!";
+      time -= 10;
+    }
+    setTimeout(displayQ, 1000);
+  }
+
+  function quizComplete() {
+    clearInterval(timer);
+    var score = document.querySelector(".score");
+
+    var completedEl = document.querySelector(".completed");
+    completedEl.style.display = "block";
+
+    var hideQs = document.querySelector("#questionContainer");
+    hideQs.style.display = "none";
+    score.textContent = `Final score: ${time}`;
+
+    quizWizzes();
+  }
+
+  //! Submit high scores
+  function quizWizzes() {
+    var submitScore = document.querySelector("#submitButton");
+    submitScore.addEventListener("click", () => {
+      let inputInitials = document.querySelector("#inputInitials");
+      let initials = inputInitials.value;
+      let previousScores = JSON.parse(localStorage.getItem("highScores"));
+      previousScores.push({
+        name: initials,
+        score: time,
+      });
+      localStorage.setItem("highScores", JSON.stringify(previousScores));
+      window.open("./quizWizzes.html");
+    });
+  }
+}

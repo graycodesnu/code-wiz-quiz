@@ -12,6 +12,23 @@ body {
   padding-bottom: 20px;
 }
 
+.link {
+  vertical-align: middle;
+  display: inline-block;
+  outline: 0;
+  text-align: center;
+  border: 0;
+  padding: 8px 16px;
+  min-width: 36px;
+  background: #F9A03F;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 14px;
+  width: 150px;
+  max-width: auto;
+  color: black;
+}
+
 .timer {
   vertical-align: middle;
   display: inline-block;
@@ -20,12 +37,13 @@ body {
   border: 0;
   padding: 8px 16px;
   min-width: 36px;
-  background: #ffe2fe;
+  background: #93032E;
   border-radius: 4px;
   font-weight: 500;
   font-size: 14px;
   width: 150px;
   max-width: auto;
+  color: white;
 }
 
 .wrapper {
@@ -46,7 +64,8 @@ body {
   padding: 7px 16px;
   min-height: 36px;
   min-width: 36px;
-  background: #ffe2fe;
+  background: #2e1760;
+  color: white;
   border-radius: 4px;
   font-weight: 500;
   font-size: 14px;
