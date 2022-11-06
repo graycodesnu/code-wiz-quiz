@@ -56,32 +56,22 @@ if (window.location.pathname === "/code-wiz-quiz/quizWizzes.html") {
   let scoreBoard = document.querySelector("#scoreBoard");
   for (let i = 0; i < scores.length; i++) {
     let liEl = document.createElement("li");
-    liEl.textContent = scores[i].name + " ** " + scores[i].score;
+    liEl.textContent = scores[i].name + " - " + scores[i].score;
     scoreBoard.appendChild(liEl);
   }
 
-  // Define clear and back buttons
-  var clearBtn = document.getElementById("clearHighScores");
-  var backBtn = document.getElementById("backButton");
-
-  //! Reset quizWiz high scores
-  if (clearBtn) {
-    clearBtn.addEventListener("click", clearScores);
-    function resetScores() {
-      localStorage.setItem("highScores", jSON.stringify([]));
-      console.log("resetting scoreboard");
-      let scoreBoardList = document.getElementById("scoreBoard");
-      scoreBoardList.innerHTML = "";
-    }
-  }
+  // Define back button
+  var backButton = document.getElementById("backButton");
 
   //! Back to quiz home
-  if (backBtn) {
-    backBtn.addEventListener("click", () => {
+  if (backButton) {
+    backButton.addEventListener("click", () => {
       window.open("./index.html");
     });
   }
+  
 } else {
+
   //* ******** Landing Page ********
 
   //! Start button
@@ -183,14 +173,14 @@ if (window.location.pathname === "/code-wiz-quiz/quizWizzes.html") {
 
   //! Submit high scores
   function quizWizzes() {
-    var submitScore = document.querySelector("#submitButton");
-    submitScore.addEventListener("click", () => {
-      let inputInitials = document.querySelector("#inputInitials");
+    var submitScores = document.querySelector("#submitButton");
+    submitScores.addEventListener("click", function() {
+      let inputInitials = document.querySelector("#initials");
       let initials = inputInitials.value;
       let previousScores = JSON.parse(localStorage.getItem("highScores"));
       previousScores.push({
         name: initials,
-        score: time,
+        score: time
       });
       localStorage.setItem("highScores", JSON.stringify(previousScores));
       window.open("./quizWizzes.html");
