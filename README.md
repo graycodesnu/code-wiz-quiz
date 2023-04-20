@@ -1,20 +1,43 @@
-# code-wiz-quiz
+# Code Wiz Quiz
 
 ## Introduction
-This project is a result of our boot camp's week 4 homework assignment. Students were expected to create a JavaScript quiz that would calculate and store a user's score in local storage. The project can be found [here](https://graycodesnu.github.io/code-wiz-quiz/).
 
-![screenshot](./assets/quizQ.png) ![screenshot](./assets/score.png) ![screenshot](assets/localStorage.png)
+This exciting timed quiz is built using JavaScript and is designed to evaluate your coding skills. Put your knowledge to the test and compare your performance with others on the leaderboard. With a user-friendly interface and challenging questions, this quiz is sure to put your skills to the test. Ready to take on the challenge? Follow [this link](https://graycodesnu.github.io/code-wiz-quiz/) to access the quiz now.
 
-## Goals 
-The goal of this assignment was to create a JavaScript quiz meeting the below criteria:
+![screenshot](./assets/quizQ.png) ![screenshot](./assets/score.png)
 
-+ Countdown timer starts when user clicks start button
-+ One question at a time displayed once timer starts 
-+ If user selects incorrect answer, 10 seconds is subtracted from the timer
-+ Once timer reaches 0, the game is over and the user is prompted to submit their score 
-+ Once user submits their score, it is stored locally
+## Table of Contents
+- [Code Wiz Quiz](#code-wiz-quiz)
+  - [Introduction](#introduction)
+  - [Table of Contents](#table-of-contents)
+  - [Goals](#goals)
+  - [Results](#results)
+  - [License](#license)
+  - [Badges](#badges)
 
-## Results 
-I was able to successfully get the timer working after struggling with that and the display of the questions. Surprisingly, adding in CSS styling halfway through the project actually helped me complete the funtionality of the project. 
+## Goals
 
-Local storage was another challenge I faced, as it was working during tests at the beginning stages of the project, but stopped working once more functionality was added. Eventually, I was able to get the scores saved to local storage again, but I was unable to get the scores appended to the Quiz Wizzes high score page. 
+The objective of this project was to develop a JavaScript quiz that satisfies the following requirements:
++ A countdown timer should start when the user clicks on the start button.
++ Each question should be displayed one at a time after the timer starts.
++ If the user selects an incorrect answer, 10 seconds should be subtracted from the timer.
++ Once the timer reaches zero, the game should end, and the user should be prompted to submit their score.
++The user's score should be stored locally after they submit it.
+
+## Results
+
+Despite some initial challenges with implementing the timer and question display, I was able to overcome them and get them working successfully. Interestingly, adding CSS styling in the middle of the project proved to be unexpectedly helpful in completing the project's functionality.
+
+One of the major obstacles I encountered was with local storage, which worked initially during the testing phase, but stopped functioning properly once more functionality was added. However, with persistence and effort, I was ultimately able to restore the saving of scores to local storage. 
+
+Overall, this project was an excellent learning experience that helped me strengthen my JavaScript skills and overcome various challenges along the way.
+
+## License
+
+This application is covered under [![GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0).
+
+## Badges
+
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
