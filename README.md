@@ -12,7 +12,6 @@ This exciting timed quiz is built using JavaScript and is designed to evaluate y
   - [Table of Contents](#table-of-contents)
   - [Goals](#goals)
   - [Results](#results)
-  - [License](#license)
   - [Badges](#badges)
 
 ## Goals
@@ -31,10 +30,6 @@ Despite some initial challenges with implementing the timer and question display
 One of the major obstacles I encountered was with local storage, which worked initially during the testing phase, but stopped functioning properly once more functionality was added. However, with persistence and effort, I was ultimately able to restore the saving of scores to local storage. 
 
 Overall, this project was an excellent learning experience that helped me strengthen my JavaScript skills and overcome various challenges along the way.
-
-## License
-
-This application is covered under [![GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0).
 
 ## Badges
 
